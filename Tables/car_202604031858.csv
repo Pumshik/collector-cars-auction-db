@@ -1,0 +1,21 @@
+"car_id","model_id","current_collector_id","production_year","mileage","condition_state","color","interior_color","notes"
+1,1,1,1990,1500,Mint,Red,Red,Jay Lenos first F40
+2,1,2,1989,5000,Excellent,Red,Black,Ralph Laurens F40
+3,1,4,1991,12000,Good,Red,Red,Nick Masons F40
+4,2,1,1963,25000,Restored,Silver,Blue,Rare GTO owned by Leno
+5,5,3,1970,18000,Excellent,Green,Beige,Seinfelds Miura
+6,8,12,1995,10000,Excellent,Deep Purple,Grey,Rowan Atkinsons F1
+7,8,1,1994,2000,Mint,Silver,Black,Lenos McLaren F1
+8,15,14,1966,30000,Restored,Gulf Blue,Black,Le Mans history
+9,7,6,1973,85000,Good,White,Black,Magnus Walkers 911
+10,10,1,1964,40000,Excellent,Silver,Black,Lenos Aston Martin
+11,18,11,2002,5000,Mint,Blue,Black,Manny Khoshbin GT-R
+12,4,9,2003,800,Mint,Red,Black,Hamiltons Enzo
+13,9,10,2020,100,Mint,Black,White,Ronaldo Chiron
+14,6,7,1985,20000,Excellent,White,Blue,David Lee Countach
+15,14,15,2005,1200,Mint,Carbon,Red,Horacios personal Zonda
+16,17,16,1967,15000,Excellent,Blue,Black,Bruce Meyers 2000GT
+17,3,13,1988,4000,Excellent,White,Black,Collier Collection
+18,11,18,1965,22000,Excellent,Green,Tan,Louwman Museum
+19,12,19,1980,5000,Good,White,Black,Glickenhaus M1
+20,20,20,1995,35000,Good,Green,Beige,Bentley GT
