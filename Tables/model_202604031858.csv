@@ -1,0 +1,21 @@
+"model_id","brand_id","name","start_year","end_year","engine_type","horsepower","class","body_style"
+1,1,F40,1987,1992,V8 Twin-Turbo,471,Supercar,Coupe
+2,1,"250 GTO",1962,1964,V12,300,GT,Coupe
+3,1,Testarossa,1984,1991,Flat-12,385,GT,Coupe
+4,1,Enzo,2002,2004,V12,651,Hypercar,Coupe
+5,2,Miura,1966,1973,V12,350,Sports,Coupe
+6,2,Countach,1974,1990,V12,375,Supercar,Coupe
+7,3,"911 Carrera",1963,,Flat-6,130,Sports,Coupe
+8,4,F1,1992,1998,V12,618,Hypercar,Coupe
+9,5,Chiron,2016,2022,W16,1500,Hypercar,Coupe
+10,6,DB5,1963,1965,L6,282,GT,Coupe
+11,7,"300 SL",1954,1957,L6,215,Sports,Coupe
+12,8,M1,1978,1981,L6,273,Sports,Coupe
+13,11,E-Type,1961,1975,L6,265,Sports,Roadster
+14,14,Zonda,1999,2011,V12,400,Hypercar,Coupe
+15,17,GT40,1964,1969,V8,485,Race,Coupe
+16,18,Corvette C2,1963,1967,V8,250,Sports,Coupe
+17,19,"2000GT",1967,1970,L6,150,Sports,Coupe
+18,20,GT-R R34,1999,2002,L6,276,Sports,Coupe
+19,10,Spider Duetto,1966,1994,L4,109,Convertible,Roadster
+20,13,Continental R,1991,2003,V8,325,Luxury,Coupe
