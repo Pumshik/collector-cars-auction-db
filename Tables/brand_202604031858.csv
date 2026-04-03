@@ -1,0 +1,21 @@
+"brand_id","name","country","city","founded_year","website"
+1,Ferrari,Italy,Maranello,1947,ferrari.com
+2,Lamborghini,Italy,Sant Agata Bolognese,1963,lamborghini.com
+3,Porsche,Germany,Stuttgart,1931,porsche.com
+4,McLaren,UK,Woking,1963,mclaren.com
+5,Bugatti,France,Molsheim,1909,bugatti.com
+6,Aston Martin,UK,Gaydon,1913,astonmartin.com
+7,Mercedes-Benz,Germany,Stuttgart,1926,mercedes-benz.com
+8,BMW,Germany,Munich,1916,bmw.com
+9,Maserati,Italy,Modena,1914,maserati.com
+10,Alfa Romeo,Italy,Milan,1910,alfaromeo.com
+11,Jaguar,UK,Coventry,1922,jaguar.com
+12,Rolls-Royce,UK,Goodwood,1904,rolls-roycemotorcars.com
+13,Bentley,UK,Crewe,1919,bentleymotors.com
+14,Pagani,Italy,San Cesario sul Panaro,1992,pagani.com
+15,Koenigsegg,Sweden,Ängelholm,1994,koenigsegg.com
+16,Ford,USA,Dearborn,1903,ford.com
+17,Chevrolet,USA,Detroit,1911,chevrolet.com
+18,Toyota,Japan,Toyota City,1937,toyota-global.com
+19,Nissan,Japan,Yokohama,1933,nissan-global.com
+20,Lancia,Italy,Turin,1906,lancia.com
