@@ -30,7 +30,7 @@ $$ LANGUAGE plpgsql;
 
 --3) Функция считает, насколько относительно цена этой машины выше или ниже средней цены всех машин в базе
 
-CREATE OR REPLACE FUNCTION GET_CONDITION_PREMIUM_PCT(p_car_id INT)
+CREATE OR REPLACE FUNCTION GET_PREMIUM_PCT(p_car_id INT)
 RETURNS NUMERIC AS $$
 DECLARE
     car_price NUMERIC;
