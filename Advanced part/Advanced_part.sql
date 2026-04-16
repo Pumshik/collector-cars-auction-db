@@ -40,20 +40,80 @@ BEGIN
     SELECT sold_price INTO car_price 
     FROM AUCTION_LOT 
     WHERE car_id = p_car_id AND status = 'Sold';
-
     SELECT AVG(sold_price) INTO market_avg 
     FROM AUCTION_LOT 
     WHERE status = 'Sold';
-
     IF market_avg > 0 AND car_price IS NOT NULL THEN
         percentage := ((car_price - market_avg) / market_avg) * 100;
     ELSE
         percentage := 0;
     END IF;
-
     RETURN ROUND(percentage, 2);
 END;
 $$ LANGUAGE plpgsql;
+
+
+--4) Функция считает, на сколько процентов средняя цена продажи машин
+-- конкретного дизайнера выше или ниже средней цены вообще всех проданных машин.
+
+CREATE OR REPLACE FUNCTION GET_DESIGNER_PRICE_INDEX(p_designer_id INT)
+RETURNS NUMERIC AS $$
+DECLARE
+    designer_avg_price NUMERIC;
+    total_market_avg NUMERIC;
+    index_pct NUMERIC;
+BEGIN
+    SELECT AVG(al.sold_price) INTO designer_avg_price
+    FROM AUCTION_LOT al
+    JOIN CAR c ON al.car_id = c.car_id
+    JOIN MODEL_DESIGNER md ON c.model_id = md.model_id
+    WHERE md.designer_id = p_designer_id AND al.status = 'Sold';
+    SELECT AVG(sold_price) INTO total_market_avg
+    FROM AUCTION_LOT
+    WHERE status = 'Sold';
+    IF total_market_avg > 0 AND designer_avg_price IS NOT NULL THEN
+        index_pct := ((designer_avg_price - total_market_avg) / total_market_avg) * 100;
+    ELSE
+        index_pct := 0;
+    END IF;
+
+    RETURN ROUND(index_pct, 2);
+END;
+$$ LANGUAGE plpgsql;
+
+
+--5) Функция для конкретной машины считает, сколько стоит одна лошадиная сила
+-- по сравнению со средним показателем для её класса.
+
+CREATE OR REPLACE FUNCTION GET_HP_EFFICIENCY_INDEX(p_car_id INT)
+RETURNS NUMERIC AS $$
+DECLARE
+    current_car_hp_cost NUMERIC;
+    class_avg_hp_cost NUMERIC;
+    car_class VARCHAR;
+    efficiency_pct NUMERIC;
+BEGIN
+    SELECT (al.sold_price / m.horsepower), m.class 
+    INTO current_car_hp_cost, car_class
+    FROM AUCTION_LOT al
+    JOIN CAR c ON al.car_id = c.car_id
+    JOIN MODEL m ON c.model_id = m.model_id
+    WHERE c.car_id = p_car_id AND al.status = 'Sold';
+    SELECT AVG(al.sold_price / m.horsepower) INTO class_avg_hp_cost
+    FROM AUCTION_LOT al
+    JOIN CAR c ON al.car_id = c.car_id
+    JOIN MODEL m ON c.model_id = m.model_id
+    WHERE m.class = car_class AND al.status = 'Sold';
+    IF class_avg_hp_cost > 0 AND current_car_hp_cost IS NOT NULL THEN
+        efficiency_pct := ((current_car_hp_cost - class_avg_hp_cost) / class_avg_hp_cost) * 100;
+    ELSE
+        efficiency_pct := 0;
+    END IF;
+
+    RETURN ROUND(efficiency_pct, 2);
+END;
+$$ LANGUAGE plpgsql;
+
 
 --ТРИГГЕРЫ
 
@@ -69,6 +129,7 @@ CREATE TRIGGER TRG_BEFORE_CAR_MILEAGE_UPDATE
 BEFORE UPDATE OF mileage ON CAR
 FOR EACH ROW
 EXECUTE FUNCTION BAN_MILEAGE_ROLLBACK();
+
 
 --ПРЕДСТАВЛЕНИЯ
 
@@ -121,7 +182,4 @@ CREATE INDEX IDX_CAR_MODEL_ID ON CAR(model_id);
 
 --3) Индекс для удобной фильтрации по названию бренда и вывода названия бренда
 CREATE INDEX IDX_BRAND_NAME ON BRAND(name);
-
-
-
 
